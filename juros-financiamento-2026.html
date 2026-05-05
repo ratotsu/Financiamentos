@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Juros de Financiamento 2026: Taxas Atualizadas + Simulador</title>
+
+<meta name="description" content="Veja as taxas de juros de financiamento em 2026 e simule parcelas de carro ou moto. Compare cenários antes de financiar.">
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f7fb;
+    color: #333;
+}
+
+/* HERO */
+.hero {
+    background: linear-gradient(135deg, #6f42c1, #3b1d82);
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.hero h1 {
+    margin-bottom: 10px;
+}
+
+.hero p {
+    opacity: 0.9;
+}
+
+/* CONTAINER */
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* INFO BOX */
+.info {
+    background: #eef2ff;
+    padding: 15px;
+    border-left: 5px solid #6f42c1;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+/* CARD */
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* INPUT */
+input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+/* BOTÃO */
+button {
+    width: 100%;
+    padding: 15px;
+    background: #6f42c1;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #3b1d82;
+}
+
+/* RESULTADO */
+.result {
+    margin-top: 20px;
+    background: #f3e8ff;
+    padding: 15px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+/* TABELA */
+.table {
+    margin-top: 30px;
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9em;
+}
+
+.table th, .table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+/* ADS */
+.ad {
+    margin: 30px 0;
+    text-align: center;
+}
+
+/* CTA */
+.cta-extra {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    padding: 12px;
+    background: #0d6efd;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+/* ALERTA */
+.alert {
+    margin-top: 25px;
+    background: #fff3cd;
+    padding: 15px;
+    border-left: 5px solid #ffc107;
+    border-radius: 6px;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>📊 Juros de Financiamento em 2026</h1>
+    <p>Compare taxas e descubra quanto realmente vai pagar</p>
+</section>
+
+<div class="container">
+
+    <!-- CONTEXTO (SEO + retenção) -->
+    <div class="info">
+        Em 2026, os juros de financiamento variam entre <strong>1,2% e 2,5% ao mês</strong>, dependendo do perfil e da instituição. Use o simulador abaixo para testar diferentes cenários.
+    </div>
+
+    <!-- ANÚNCIO TOPO -->
+    <div class="ad">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-XXXX"
+             data-ad-slot="TOPJUROS"
+             data-ad-format="auto"></ins>
+    </div>
+
+    <!-- SIMULADOR -->
+    <div class="card">
+
+        <input id="valor" placeholder="Valor do financiamento">
+        <input id="entrada" placeholder="Entrada">
+        <input id="juros" value="2" placeholder="Juros mensal %">
+        <input id="parcelas" placeholder="Parcelas">
+
+        <button onclick="calc()">Calcular Parcela</button>
+
+        <div id="res" class="result" style="display:none;"></div>
+
+        <a href="financiamento-carro-usado.html" class="cta-extra">
+            🚗 Simular financiamento de carro
+        </a>
+
+    </div>
+
+    <!-- ANÚNCIO MEIO -->
+    <div class="ad">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-XXXX"
+             data-ad-slot="MIDJUROS"
+             data-ad-format="fluid"></ins>
+    </div>
+
+    <!-- TABELA COMPARATIVA -->
+    <table class="table">
+        <tr>
+            <th>Tipo</th>
+            <th>Juros médio</th>
+        </tr>
+        <tr>
+            <td>Carro novo</td>
+            <td>1.2% - 1.8%</td>
+        </tr>
+        <tr>
+            <td>Carro usado</td>
+            <td>1.5% - 2.2%</td>
+        </tr>
+        <tr>
+            <td>Moto</td>
+            <td>1.8% - 2.5%</td>
+        </tr>
+    </table>
+
+    <!-- ALERTA -->
+    <div class="alert">
+        ⚠️ Pequenas diferenças nos juros podem gerar milhares de reais a mais no total pago.
+    </div>
+
+    <!-- VOLTAR -->
+    <a href="index.html" style="display:block; text-align:center; margin-top:20px;">
+        ⬅ Voltar
+    </a>
+
+</div>
+
+<footer style="text-align:center; font-size:0.8em; padding:20px; color:#777;">
+© 2026 Simulador Financeiro | Taxas aproximadas
+</footer>
+
+<script>
+function calc(){
+let v=parseFloat(document.getElementById('valor').value);
+let e=parseFloat(document.getElementById('entrada').value)||0;
+let j=parseFloat(document.getElementById('juros').value)/100;
+let n=parseInt(document.getElementById('parcelas').value);
+
+if(!v || !j || !n){
+    alert("Preencha corretamente");
+    return;
+}
+
+let pv=v-e;
+let pmt=(pv*j)/(1-Math.pow(1+j,-n));
+let total=pmt*n;
+
+let res=document.getElementById('res');
+res.style.display="block";
+res.innerHTML=`
+💰 Parcela: R$ ${pmt.toFixed(2)} <br>
+📊 Total pago: R$ ${total.toFixed(2)}
+`;
+}
+</script>
+
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+</body>
+</html>
