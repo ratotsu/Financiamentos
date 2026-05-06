@@ -1,130 +1,180 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2446257973355668"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Simular Financiamento de Carro Usado 2026</title>
+  <title>Simular Financiamento de Carro Usado 2026</title>
 
-<meta name="description" content="Simule financiamento de carro usado com valor FIPE automático e juros atualizados.">
+  <meta name="description" content="Simule financiamento de carro usado com valor FIPE automático e juros atualizados.">
 
-<style>
-body {margin:0;font-family:Arial;background:#f5f7fb;color:#333;}
-.hero {background:linear-gradient(135deg,#198754,#0f5132);color:#fff;text-align:center;padding:50px 20px;}
-.container {max-width:900px;margin:auto;padding:20px;}
-.card {background:#fff;padding:25px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.08);}
-input,select {width:100%;padding:12px;margin-bottom:12px;border-radius:6px;border:1px solid #ccc;}
-button {width:100%;padding:15px;background:#198754;color:#fff;border:0;border-radius:8px;font-weight:bold;}
-.result {margin-top:20px;background:#e9f7ef;padding:15px;border-radius:8px;font-weight:bold;}
-</style>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial;
+      background: #f5f7fb;
+      color: #333;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #198754, #0f5132);
+      color: #fff;
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 12px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      background: #198754;
+      color: #fff;
+      border: 0;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    .result {
+      margin-top: 20px;
+      background: #e9f7ef;
+      padding: 15px;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+  </style>
 
 </head>
 
 <body>
 
-<section class="hero">
-<h1>🚗 Simule o Financiamento do Seu Carro</h1>
-<p>Com valor FIPE automático</p>
-</section>
+  <section class="hero">
+    <h1>🚗 Simule o Financiamento do Seu Carro</h1>
+    <p>Com valor FIPE automático</p>
+  </section>
 
-<div class="container">
+  <div class="container">
 
-<div class="card">
+    <div class="card">
 
-<!-- FIPE -->
-<select id="marca"></select>
-<select id="modelo"></select>
-<select id="ano"></select>
+      <!-- FIPE -->
+      <select id="marca"></select>
+      <select id="modelo"></select>
+      <select id="ano"></select>
 
-<input id="valor" placeholder="Valor do carro (preenchido automaticamente)">
-<input id="entrada" placeholder="Entrada">
-<input id="juros" placeholder="Juros % ao mês">
-<input id="parcelas" placeholder="Parcelas">
+      <input id="valor" placeholder="Valor do carro (preenchido automaticamente)">
+      <input id="entrada" placeholder="Entrada">
+      <input id="juros" placeholder="Juros % ao mês">
+      <input id="parcelas" placeholder="Parcelas">
 
-<button onclick="calc()">Calcular</button>
+      <button onclick="calc()">Calcular</button>
 
-<div id="res" class="result" style="display:none"></div>
+      <div id="res" class="result" style="display:none"></div>
 
-</div>
+    </div>
 
-</div>
-<div style="text-align:center;"><a href="index.html" class="back" >⬅ Voltar</a></div>
-<footer style="text-align:center;font-size:0.8em;padding:20px;color:#777;">
-© 2026 Simulador Financeiro
-</footer>
+  </div>
+  <div style="text-align:center;"><a href="index.html" class="back">⬅ Voltar</a></div>
+  <footer style="text-align:center;font-size:0.8em;padding:20px;color:#777;">
+    © 2026 Simulador Financeiro
+  </footer>
 
-<script>
-// ===== FIPE CARROS =====
-const base = "https://parallelum.com.br/fipe/api/v1/carros";
+  <script>
+    // ===== FIPE CARROS =====
+    const base = "https://parallelum.com.br/fipe/api/v1/carros";
 
-async function carregarMarcas(){
-  const res = await fetch(base + "/marcas");
-  const data = await res.json();
+    async function carregarMarcas() {
+      const res = await fetch(base + "/marcas");
+      const data = await res.json();
 
-  marca.innerHTML = "<option>Selecione marca</option>";
-  data.forEach(m => {
-    marca.innerHTML += `<option value="${m.codigo}">${m.nome}</option>`;
-  });
-}
+      marca.innerHTML = "<option>Selecione marca</option>";
+      data.forEach(m => {
+        marca.innerHTML += `<option value="${m.codigo}">${m.nome}</option>`;
+      });
+    }
 
-marca.addEventListener("change", async ()=>{
-  const res = await fetch(`${base}/marcas/${marca.value}/modelos`);
-  const data = await res.json();
+    marca.addEventListener("change", async () => {
+      const res = await fetch(`${base}/marcas/${marca.value}/modelos`);
+      const data = await res.json();
 
-  modelo.innerHTML = "<option>Selecione modelo</option>";
-  data.modelos.forEach(m=>{
-    modelo.innerHTML += `<option value="${m.codigo}">${m.nome}</option>`;
-  });
-});
+      modelo.innerHTML = "<option>Selecione modelo</option>";
+      data.modelos.forEach(m => {
+        modelo.innerHTML += `<option value="${m.codigo}">${m.nome}</option>`;
+      });
+    });
 
-modelo.addEventListener("change", async ()=>{
-  const res = await fetch(`${base}/marcas/${marca.value}/modelos/${modelo.value}/anos`);
-  const data = await res.json();
+    modelo.addEventListener("change", async () => {
+      const res = await fetch(`${base}/marcas/${marca.value}/modelos/${modelo.value}/anos`);
+      const data = await res.json();
 
-  ano.innerHTML = "<option>Selecione ano</option>";
-  data.forEach(a=>{
-    ano.innerHTML += `<option value="${a.codigo}">${a.nome}</option>`;
-  });
-});
+      ano.innerHTML = "<option>Selecione ano</option>";
+      data.forEach(a => {
+        ano.innerHTML += `<option value="${a.codigo}">${a.nome}</option>`;
+      });
+    });
 
-ano.addEventListener("change", async ()=>{
-  const res = await fetch(`${base}/marcas/${marca.value}/modelos/${modelo.value}/anos/${ano.value}`);
-  const data = await res.json();
+    ano.addEventListener("change", async () => {
+      const res = await fetch(`${base}/marcas/${marca.value}/modelos/${modelo.value}/anos/${ano.value}`);
+      const data = await res.json();
 
-  let preco = data.Valor.replace("R$","").replace(/\./g,"").replace(",",".");
-  valor.value = parseFloat(preco);
-});
+      let preco = data.Valor.replace("R$", "").replace(/\./g, "").replace(",", ".");
+      valor.value = parseFloat(preco);
+    });
 
-carregarMarcas();
+    carregarMarcas();
 
 
-// ===== CALCULO =====
-function calc(){
-let v=parseFloat(valor.value);
-let e=parseFloat(entrada.value)||0;
-let j=parseFloat(juros.value)/100;
-let n=parseInt(parcelas.value);
+    // ===== CALCULO =====
+    function calc() {
+      let v = parseFloat(valor.value);
+      let e = parseFloat(entrada.value) || 0;
+      let j = parseFloat(juros.value) / 100;
+      let n = parseInt(parcelas.value);
 
-if(!v||!j||!n){
-  alert("Preencha corretamente");
-  return;
-}
+      if (!v || !j || !n) {
+        alert("Preencha corretamente");
+        return;
+      }
 
-let pv=v-e;
-let pmt=(pv*j)/(1-Math.pow(1+j,-n));
-let total=pmt*n;
+      let pv = v - e;
+      let pmt = (pv * j) / (1 - Math.pow(1 + j, -n));
+      let total = pmt * n;
 
-res.style.display="block";
-res.innerHTML=`
+      res.style.display = "block";
+      res.innerHTML = `
 💰 Parcela: R$ ${pmt.toFixed(2)}<br>
 📊 Total: R$ ${total.toFixed(2)}
 `;
-}
-</script>
+    }
+  </script>
 
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
 
 </body>
+
 </html>

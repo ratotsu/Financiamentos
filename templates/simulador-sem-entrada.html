@@ -1,102 +1,189 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2446257973355668"
+        crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Financiamento Sem Entrada 2026</title>
+    <title>Financiamento Sem Entrada 2026</title>
 
-<meta name="description" content="Simule financiamento sem entrada e veja quanto você perde em juros.">
+    <meta name="description" content="Simule financiamento sem entrada e veja quanto você perde em juros.">
 
-<style>
-body {margin:0;font-family:Arial;background:#f5f7fb;color:#333;}
-.hero {background:linear-gradient(135deg,#fd7e14,#a04a00);color:#fff;text-align:center;padding:50px 20px;}
-.container {max-width:900px;margin:auto;padding:20px;}
-.alert-top {background:#ffe5d0;padding:15px;border-left:5px solid #fd7e14;border-radius:6px;margin-bottom:20px;}
-.card {background:#fff;padding:25px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.08);}
-input {width:100%;padding:12px;margin-bottom:12px;border-radius:6px;border:1px solid #ccc;}
-button {width:100%;padding:15px;background:#fd7e14;color:#fff;border:0;border-radius:8px;font-weight:bold;}
-.result {margin-top:20px;background:#fff4e6;padding:15px;border-radius:8px;font-weight:bold;}
-.ad {margin:30px 0;text-align:center;}
-.cta-extra {display:block;margin-top:20px;text-align:center;padding:12px;background:#0d6efd;color:#fff;text-decoration:none;border-radius:6px;}
-.compare {margin-top:25px;background:#eef2ff;padding:15px;border-radius:6px;}
-.back {display:block;text-align:center;margin-top:20px;}
-.selic-box {background:#fff4e6;padding:10px;text-align:center;margin-bottom:15px;border-radius:6px;}
-</style>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background: #f5f7fb;
+            color: #333;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #fd7e14, #a04a00);
+            color: #fff;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .alert-top {
+            background: #ffe5d0;
+            padding: 15px;
+            border-left: 5px solid #fd7e14;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 12px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background: #fd7e14;
+            color: #fff;
+            border: 0;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .result {
+            margin-top: 20px;
+            background: #fff4e6;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .ad {
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .cta-extra {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            padding: 12px;
+            background: #0d6efd;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        .compare {
+            margin-top: 25px;
+            background: #eef2ff;
+            padding: 15px;
+            border-radius: 6px;
+        }
+
+        .back {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .selic-box {
+            background: #fff4e6;
+            padding: 10px;
+            text-align: center;
+            margin-bottom: 15px;
+            border-radius: 6px;
+        }
+    </style>
 
 </head>
 
 <body>
 
-<section class="hero">
-<h1>💸 Financiamento Sem Entrada</h1>
-<p>Veja quanto você realmente vai pagar</p>
-</section>
+    <section class="hero">
+        <h1>💸 Financiamento Sem Entrada</h1>
+        <p>Veja quanto você realmente vai pagar</p>
+    </section>
 
-<div class="container">
+    <div class="container">
 
-<div class="alert-top">
-⚠️ Financiar sem entrada aumenta muito o custo total.
-</div>
+        <div class="alert-top">
+            ⚠️ Financiar sem entrada aumenta muito o custo total.
+        </div>
 
-<!-- SELIC -->
-<div class="selic-box">
-<div id="selic">Carregando Selic...</div>
-</div>
+        <!-- SELIC -->
+        <div class="selic-box">
+            <div id="selic">Carregando Selic...</div>
+        </div>
 
-<div class="card">
+        <div class="card">
 
-<input id="valor" placeholder="Valor do financiamento">
-<input id="juros" placeholder="Juros % ao mês">
-<input id="parcelas" placeholder="Parcelas">
+            <input id="valor" placeholder="Valor do financiamento">
+            <input id="juros" placeholder="Juros % ao mês">
+            <input id="parcelas" placeholder="Parcelas">
 
-<button onclick="calc()">Calcular</button>
+            <button onclick="calc()">Calcular</button>
 
-<div id="res" class="result" style="display:none;"></div>
+            <div id="res" class="result" style="display:none;"></div>
 
-<a href="#" target="_blank" class="cta-extra">
-🚀 Ver financiamento aprovado mesmo sem entrada
-</a>
+            <a href="#" target="_blank" class="cta-extra">
+                🚀 Ver financiamento aprovado mesmo sem entrada
+            </a>
 
-</div>
+        </div>
 
-<div class="compare">
-💡 Dar entrada pode reduzir milhares de reais no total pago.
-</div>
-</div>
+        <div class="compare">
+            💡 Dar entrada pode reduzir milhares de reais no total pago.
+        </div>
+    </div>
 
-<div style="text-align:center;"><a href="index.html" class="back" >⬅ Voltar</a></div>
-    
-<footer style="text-align:center;font-size:0.8em;padding:20px;color:#777;">
-© 2026 Simulador Financeiro
-</footer>
+    <div style="text-align:center;"><a href="index.html" class="back">⬅ Voltar</a></div>
 
-<script>
-// ===== CALCULO =====
-function calc(){
-let v=parseFloat(valor.value);
-let j=parseFloat(juros.value)/100;
-let n=parseInt(parcelas.value);
+    <footer style="text-align:center;font-size:0.8em;padding:20px;color:#777;">
+        © 2026 Simulador Financeiro
+    </footer>
 
-if(!v||!j||!n){
-alert("Preencha corretamente");
-return;
-}
+    <script>
+        // ===== CALCULO =====
+        function calc() {
+            let v = parseFloat(valor.value);
+            let j = parseFloat(juros.value) / 100;
+            let n = parseInt(parcelas.value);
 
-// SEM ENTRADA
-let pmt1=(v*j)/(1-Math.pow(1+j,-n));
-let total1=pmt1*n;
+            if (!v || !j || !n) {
+                alert("Preencha corretamente");
+                return;
+            }
 
-// COM 20% ENTRADA
-let entrada=v*0.2;
-let pv2=v-entrada;
-let pmt2=(pv2*j)/(1-Math.pow(1+j,-n));
-let total2=pmt2*n;
+            // SEM ENTRADA
+            let pmt1 = (v * j) / (1 - Math.pow(1 + j, -n));
+            let total1 = pmt1 * n;
 
-let economia=total1-total2;
+            // COM 20% ENTRADA
+            let entrada = v * 0.2;
+            let pv2 = v - entrada;
+            let pmt2 = (pv2 * j) / (1 - Math.pow(1 + j, -n));
+            let total2 = pmt2 * n;
 
-res.style.display="block";
-res.innerHTML=`
+            let economia = total1 - total2;
+
+            res.style.display = "block";
+            res.innerHTML = `
 ❌ Sem entrada:<br>
 Parcela: R$ ${pmt1.toFixed(2)}<br>
 Total: R$ ${total1.toFixed(2)}<br><br>
@@ -107,27 +194,28 @@ Total: R$ ${total2.toFixed(2)}<br><br>
 
 💸 Economia: R$ ${economia.toFixed(2)}
 `;
-}
+        }
 
 
-// ===== SELIC =====
-fetch("https://api.bcb.gov.br/dados/serie/bcdata.sgs.432/dados/ultimos/1?formato=json")
-.then(r=>r.json())
-.then(d=>{
-if(d && d[0]){
-document.getElementById("selic").innerText =
-"Selic atual: " + d[0].valor + "%";
-}
-})
-.catch(()=>{
-document.getElementById("selic").innerText =
-"Selic indisponível";
-});
-</script>
+        // ===== SELIC =====
+        fetch("https://api.bcb.gov.br/dados/serie/bcdata.sgs.432/dados/ultimos/1?formato=json")
+            .then(r => r.json())
+            .then(d => {
+                if (d && d[0]) {
+                    document.getElementById("selic").innerText =
+                        "Selic atual: " + d[0].valor + "%";
+                }
+            })
+            .catch(() => {
+                document.getElementById("selic").innerText =
+                    "Selic indisponível";
+            });
+    </script>
 
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
 
 </body>
+
 </html>
