@@ -4,210 +4,125 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Financiamento Sem Entrada 2026: Simule Parcelas</title>
+<title>Financiamento Sem Entrada 2026</title>
 
-<meta name="description" content="Simule financiamento sem entrada e descubra quanto vai pagar por mês. Compare cenários antes de financiar.">
+<meta name="description" content="Simule financiamento sem entrada e veja quanto você perde em juros.">
 
 <style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f5f7fb;
-    color: #333;
-}
-
-/* HERO */
-.hero {
-    background: linear-gradient(135deg, #fd7e14, #a04a00);
-    color: white;
-    text-align: center;
-    padding: 50px 20px;
-}
-
-.hero h1 {
-    margin-bottom: 10px;
-}
-
-/* CONTAINER */
-.container {
-    max-width: 900px;
-    margin: auto;
-    padding: 20px;
-}
-
-/* ALERTA */
-.alert-top {
-    background: #ffe5d0;
-    padding: 15px;
-    border-left: 5px solid #fd7e14;
-    border-radius: 6px;
-    margin-bottom: 20px;
-}
-
-/* CARD */
-.card {
-    background: white;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
-
-/* INPUT */
-input {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 12px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-}
-
-/* BOTÃO */
-button {
-    width: 100%;
-    padding: 15px;
-    background: #fd7e14;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #a04a00;
-}
-
-/* RESULTADO */
-.result {
-    margin-top: 20px;
-    background: #fff4e6;
-    padding: 15px;
-    border-radius: 8px;
-    font-weight: bold;
-}
-
-/* ADS */
-.ad {
-    margin: 30px 0;
-    text-align: center;
-}
-
-/* CTA */
-.cta-extra {
-    display: block;
-    margin-top: 20px;
-    text-align: center;
-    padding: 12px;
-    background: #0d6efd;
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
-}
-
-/* COMPARAÇÃO */
-.compare {
-    margin-top: 25px;
-    background: #eef2ff;
-    padding: 15px;
-    border-radius: 6px;
-}
-
-/* VOLTAR */
-.back {
-    display: block;
-    text-align: center;
-    margin-top: 20px;
-}
+body {margin:0;font-family:Arial;background:#f5f7fb;color:#333;}
+.hero {background:linear-gradient(135deg,#fd7e14,#a04a00);color:#fff;text-align:center;padding:50px 20px;}
+.container {max-width:900px;margin:auto;padding:20px;}
+.alert-top {background:#ffe5d0;padding:15px;border-left:5px solid #fd7e14;border-radius:6px;margin-bottom:20px;}
+.card {background:#fff;padding:25px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.08);}
+input {width:100%;padding:12px;margin-bottom:12px;border-radius:6px;border:1px solid #ccc;}
+button {width:100%;padding:15px;background:#fd7e14;color:#fff;border:0;border-radius:8px;font-weight:bold;}
+.result {margin-top:20px;background:#fff4e6;padding:15px;border-radius:8px;font-weight:bold;}
+.ad {margin:30px 0;text-align:center;}
+.cta-extra {display:block;margin-top:20px;text-align:center;padding:12px;background:#0d6efd;color:#fff;text-decoration:none;border-radius:6px;}
+.compare {margin-top:25px;background:#eef2ff;padding:15px;border-radius:6px;}
+.back {display:block;text-align:center;margin-top:20px;}
+.selic-box {background:#fff4e6;padding:10px;text-align:center;margin-bottom:15px;border-radius:6px;}
 </style>
 
 </head>
 
 <body>
 
-<!-- HERO -->
 <section class="hero">
-    <h1>💸 Financiamento Sem Entrada</h1>
-    <p>Veja quanto você realmente vai pagar sem dar entrada</p>
+<h1>💸 Financiamento Sem Entrada</h1>
+<p>Veja quanto você realmente vai pagar</p>
 </section>
 
 <div class="container">
 
-    <!-- ALERTA (impacto forte) -->
-    <div class="alert-top">
-        ⚠️ Financiar sem entrada aumenta significativamente o valor total pago.
-    </div>
+<div class="alert-top">
+⚠️ Financiar sem entrada aumenta muito o custo total.
+</div>
 
-    <!-- ANÚNCIO TOPO -->
-    <div class="ad">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-XXXX"
-             data-ad-slot="TOPSEMENTRADA"
-             data-ad-format="auto"></ins>
-    </div>
+<!-- SELIC -->
+<div class="selic-box">
+<div id="selic">Carregando Selic...</div>
+</div>
 
-    <!-- SIMULADOR -->
-    <div class="card">
+<div class="card">
 
-        <input id="valor" placeholder="Valor do financiamento (ex: 25000)">
-        <input id="juros" placeholder="Juros mensal % (ex: 2.0)">
-        <input id="parcelas" placeholder="Parcelas (ex: 48)">
+<input id="valor" placeholder="Valor do financiamento">
+<input id="juros" placeholder="Juros % ao mês">
+<input id="parcelas" placeholder="Parcelas">
 
-        <button onclick="calc()">Calcular Parcela</button>
+<button onclick="calc()">Calcular</button>
 
-        <div id="res" class="result" style="display:none;"></div>
+<div id="res" class="result" style="display:none;"></div>
 
-        <!-- CTA -->
-        <a href="financiamento-carro-usado.html" class="cta-extra">
-            🚗 Simular com entrada (economizar juros)
-        </a>
-
-    </div>
-
-    <!-- ANÚNCIO MEIO -->
-    <div class="ad">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-XXXX"
-             data-ad-slot="MIDSEMENTRADA"
-             data-ad-format="fluid"></ins>
-    </div>
-
-    <!-- COMPARAÇÃO -->
-    <div class="compare">
-        💡 Dica: Dar uma entrada reduz drasticamente o valor total pago no financiamento.
-    </div>
-
-    <!-- VOLTAR -->
-    <a href="index.html" class="back">⬅ Voltar</a>
+<a href="#" target="_blank" class="cta-extra">
+🚀 Ver financiamento aprovado mesmo sem entrada
+</a>
 
 </div>
 
-<footer style="text-align:center; font-size:0.8em; padding:20px; color:#777;">
-© 2026 Simulador Financeiro | Simulação estimada
+<div class="compare">
+💡 Dar entrada pode reduzir milhares de reais no total pago.
+</div>
+</div>
+
+<div style="text-align:center;"><a href="index.html" class="back" >⬅ Voltar</a></div>
+    
+<footer style="text-align:center;font-size:0.8em;padding:20px;color:#777;">
+© 2026 Simulador Financeiro
 </footer>
 
 <script>
+// ===== CALCULO =====
 function calc(){
-let v=parseFloat(document.getElementById('valor').value);
-let j=parseFloat(document.getElementById('juros').value)/100;
-let n=parseInt(document.getElementById('parcelas').value);
+let v=parseFloat(valor.value);
+let j=parseFloat(juros.value)/100;
+let n=parseInt(parcelas.value);
 
-if(!v || !j || !n){
-    alert("Preencha corretamente");
-    return;
+if(!v||!j||!n){
+alert("Preencha corretamente");
+return;
 }
 
-let pmt=(v*j)/(1-Math.pow(1+j,-n));
-let total=pmt*n;
+// SEM ENTRADA
+let pmt1=(v*j)/(1-Math.pow(1+j,-n));
+let total1=pmt1*n;
 
-let res=document.getElementById('res');
+// COM 20% ENTRADA
+let entrada=v*0.2;
+let pv2=v-entrada;
+let pmt2=(pv2*j)/(1-Math.pow(1+j,-n));
+let total2=pmt2*n;
+
+let economia=total1-total2;
+
 res.style.display="block";
 res.innerHTML=`
-💰 Parcela: R$ ${pmt.toFixed(2)} <br>
-📊 Total pago: R$ ${total.toFixed(2)}
+❌ Sem entrada:<br>
+Parcela: R$ ${pmt1.toFixed(2)}<br>
+Total: R$ ${total1.toFixed(2)}<br><br>
+
+✅ Com 20% entrada:<br>
+Parcela: R$ ${pmt2.toFixed(2)}<br>
+Total: R$ ${total2.toFixed(2)}<br><br>
+
+💸 Economia: R$ ${economia.toFixed(2)}
 `;
 }
+
+
+// ===== SELIC =====
+fetch("https://api.bcb.gov.br/dados/serie/bcdata.sgs.432/dados/ultimos/1?formato=json")
+.then(r=>r.json())
+.then(d=>{
+if(d && d[0]){
+document.getElementById("selic").innerText =
+"Selic atual: " + d[0].valor + "%";
+}
+})
+.catch(()=>{
+document.getElementById("selic").innerText =
+"Selic indisponível";
+});
 </script>
 
 <script>

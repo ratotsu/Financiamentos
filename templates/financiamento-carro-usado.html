@@ -6,214 +6,119 @@
 
 <title>Simular Financiamento de Carro Usado 2026</title>
 
-<meta name="description" content="Simule parcelas de financiamento de carro usado com juros atualizados. Descubra quanto vai pagar antes de fechar negócio.">
+<meta name="description" content="Simule financiamento de carro usado com valor FIPE automático e juros atualizados.">
 
 <style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f5f7fb;
-    color: #333;
-}
-
-/* HERO */
-.hero {
-    background: linear-gradient(135deg, #198754, #0f5132);
-    color: white;
-    text-align: center;
-    padding: 50px 20px;
-}
-
-.hero h1 {
-    margin-bottom: 10px;
-}
-
-.hero p {
-    opacity: 0.9;
-}
-
-/* CONTAINER */
-.container {
-    max-width: 900px;
-    margin: auto;
-    padding: 20px;
-}
-
-/* CARD */
-.card {
-    background: white;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
-
-/* INPUTS */
-input {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 12px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    font-size: 1em;
-}
-
-/* BOTÃO */
-button {
-    width: 100%;
-    padding: 15px;
-    background: #198754;
-    color: white;
-    border: none;
-    font-size: 1em;
-    font-weight: bold;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #0f5132;
-}
-
-/* RESULTADO */
-.result {
-    margin-top: 20px;
-    background: #e9f7ef;
-    padding: 15px;
-    border-radius: 8px;
-    font-size: 1.1em;
-    font-weight: bold;
-}
-
-/* BENEFÍCIOS */
-.benefits {
-    margin: 25px 0;
-    font-size: 0.9em;
-}
-
-/* ADS */
-.ad {
-    margin: 30px 0;
-    text-align: center;
-}
-
-/* CTA EXTRA */
-.cta-extra {
-    margin-top: 20px;
-    display: block;
-    text-align: center;
-    padding: 12px;
-    background: #0d6efd;
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
-}
-
-/* VOLTAR */
-.back {
-    display: block;
-    margin-top: 20px;
-    text-align: center;
-    font-size: 0.9em;
-}
-
-/* URGÊNCIA */
-.urgency {
-    background: #fff3cd;
-    padding: 15px;
-    border-left: 5px solid #ffc107;
-    border-radius: 6px;
-    margin-top: 25px;
-}
+body {margin:0;font-family:Arial;background:#f5f7fb;color:#333;}
+.hero {background:linear-gradient(135deg,#198754,#0f5132);color:#fff;text-align:center;padding:50px 20px;}
+.container {max-width:900px;margin:auto;padding:20px;}
+.card {background:#fff;padding:25px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.08);}
+input,select {width:100%;padding:12px;margin-bottom:12px;border-radius:6px;border:1px solid #ccc;}
+button {width:100%;padding:15px;background:#198754;color:#fff;border:0;border-radius:8px;font-weight:bold;}
+.result {margin-top:20px;background:#e9f7ef;padding:15px;border-radius:8px;font-weight:bold;}
 </style>
 
 </head>
 
 <body>
 
-<!-- HERO -->
 <section class="hero">
-    <h1>🚗 Simule o Financiamento do Seu Carro Usado</h1>
-    <p>Descubra o valor real das parcelas antes de fechar negócio</p>
+<h1>🚗 Simule o Financiamento do Seu Carro</h1>
+<p>Com valor FIPE automático</p>
 </section>
 
 <div class="container">
 
-    <!-- BENEFÍCIOS -->
-    <div class="benefits">
-        ✔ Cálculo instantâneo  
-        ✔ Evite juros abusivos  
-        ✔ Compare cenários antes de financiar  
-    </div>
+<div class="card">
 
-    <!-- ANÚNCIO TOPO -->
-    <div class="ad">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-XXXX"
-             data-ad-slot="TOPCAR"
-             data-ad-format="auto"></ins>
-    </div>
+<!-- FIPE -->
+<select id="marca"></select>
+<select id="modelo"></select>
+<select id="ano"></select>
 
-    <!-- SIMULADOR -->
-    <div class="card">
+<input id="valor" placeholder="Valor do carro (preenchido automaticamente)">
+<input id="entrada" placeholder="Entrada">
+<input id="juros" placeholder="Juros % ao mês">
+<input id="parcelas" placeholder="Parcelas">
 
-        <input id="valor" placeholder="Valor do carro (ex: 30000)">
-        <input id="entrada" placeholder="Entrada (ex: 5000)">
-        <input id="juros" placeholder="Juros mensal % (ex: 1.5)">
-        <input id="parcelas" placeholder="Número de parcelas (ex: 48)">
+<button onclick="calc()">Calcular</button>
 
-        <button onclick="calc()">Calcular Parcela</button>
-
-        <div id="res" class="result" style="display:none;"></div>
-
-        <!-- CTA EXTRA -->
-        <a href="juros-financiamento-2026.html" class="cta-extra">
-            📊 Ver taxas atualizadas de financiamento
-        </a>
-
-    </div>
-
-    <!-- ANÚNCIO MEIO -->
-    <div class="ad">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-XXXX"
-             data-ad-slot="MIDCAR"
-             data-ad-format="fluid"></ins>
-    </div>
-
-    <!-- URGÊNCIA -->
-    <div class="urgency">
-        ⚠️ As taxas podem variar diariamente. Simule diferentes cenários antes de decidir.
-    </div>
-
-    <!-- VOLTAR -->
-    <a href="index.html" class="back">⬅ Voltar para simuladores</a>
+<div id="res" class="result" style="display:none"></div>
 
 </div>
 
-<footer style="text-align:center; font-size:0.8em; padding:20px; color:#777;">
-© 2026 Simulador Financeiro | Valores estimados
+</div>
+<div style="text-align:center;"><a href="index.html" class="back" >⬅ Voltar</a></div>
+<footer style="text-align:center;font-size:0.8em;padding:20px;color:#777;">
+© 2026 Simulador Financeiro
 </footer>
 
 <script>
-function calc(){
-let v=parseFloat(document.getElementById('valor').value);
-let e=parseFloat(document.getElementById('entrada').value)||0;
-let j=parseFloat(document.getElementById('juros').value)/100;
-let n=parseInt(document.getElementById('parcelas').value);
+// ===== FIPE CARROS =====
+const base = "https://parallelum.com.br/fipe/api/v1/carros";
 
-if(!v || !j || !n){
-    alert("Preencha todos os campos corretamente");
-    return;
+async function carregarMarcas(){
+  const res = await fetch(base + "/marcas");
+  const data = await res.json();
+
+  marca.innerHTML = "<option>Selecione marca</option>";
+  data.forEach(m => {
+    marca.innerHTML += `<option value="${m.codigo}">${m.nome}</option>`;
+  });
+}
+
+marca.addEventListener("change", async ()=>{
+  const res = await fetch(`${base}/marcas/${marca.value}/modelos`);
+  const data = await res.json();
+
+  modelo.innerHTML = "<option>Selecione modelo</option>";
+  data.modelos.forEach(m=>{
+    modelo.innerHTML += `<option value="${m.codigo}">${m.nome}</option>`;
+  });
+});
+
+modelo.addEventListener("change", async ()=>{
+  const res = await fetch(`${base}/marcas/${marca.value}/modelos/${modelo.value}/anos`);
+  const data = await res.json();
+
+  ano.innerHTML = "<option>Selecione ano</option>";
+  data.forEach(a=>{
+    ano.innerHTML += `<option value="${a.codigo}">${a.nome}</option>`;
+  });
+});
+
+ano.addEventListener("change", async ()=>{
+  const res = await fetch(`${base}/marcas/${marca.value}/modelos/${modelo.value}/anos/${ano.value}`);
+  const data = await res.json();
+
+  let preco = data.Valor.replace("R$","").replace(/\./g,"").replace(",",".");
+  valor.value = parseFloat(preco);
+});
+
+carregarMarcas();
+
+
+// ===== CALCULO =====
+function calc(){
+let v=parseFloat(valor.value);
+let e=parseFloat(entrada.value)||0;
+let j=parseFloat(juros.value)/100;
+let n=parseInt(parcelas.value);
+
+if(!v||!j||!n){
+  alert("Preencha corretamente");
+  return;
 }
 
 let pv=v-e;
 let pmt=(pv*j)/(1-Math.pow(1+j,-n));
+let total=pmt*n;
 
-let res=document.getElementById('res');
 res.style.display="block";
-res.innerHTML="💰 Parcela estimada: R$ "+pmt.toFixed(2);
+res.innerHTML=`
+💰 Parcela: R$ ${pmt.toFixed(2)}<br>
+📊 Total: R$ ${total.toFixed(2)}
+`;
 }
 </script>
 

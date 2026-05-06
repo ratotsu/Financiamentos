@@ -1,228 +1,173 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Simular Financiamento Moto Honda 2026</title>
+    <title>Simular Financiamento Moto Honda 2026</title>
 
-<meta name="description" content="Simule parcelas de financiamento de motos Honda com juros atualizados. Descubra quanto vai pagar antes de comprar.">
+    <meta name="description"
+        content="Simule financiamento de motos Honda com valor FIPE automático e juros atualizados.">
 
-<style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f4f6f9;
-    color: #333;
-}
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background: #f4f6f9;
+            color: #333;
+        }
 
-/* HERO */
-.hero {
-    background: linear-gradient(135deg, #dc3545, #7a0f1a);
-    color: white;
-    text-align: center;
-    padding: 50px 20px;
-}
+        .hero {
+            background: linear-gradient(135deg, #dc3545, #7a0f1a);
+            color: #fff;
+            text-align: center;
+            padding: 50px 20px;
+        }
 
-.hero h1 {
-    margin-bottom: 10px;
-}
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
 
-.hero p {
-    opacity: 0.9;
-}
+        .card {
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
 
-/* CONTAINER */
-.container {
-    max-width: 900px;
-    margin: auto;
-    padding: 20px;
-}
+        input,
+        select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 12px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
 
-/* CARD */
-.card {
-    background: white;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
+        button {
+            width: 100%;
+            padding: 15px;
+            background: #dc3545;
+            color: #fff;
+            border: 0;
+            border-radius: 8px;
+            font-weight: bold;
+        }
 
-/* INPUT */
-input {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 12px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-}
-
-/* BOTÃO */
-button {
-    width: 100%;
-    padding: 15px;
-    background: #dc3545;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #7a0f1a;
-}
-
-/* RESULTADO */
-.result {
-    margin-top: 20px;
-    background: #fdecea;
-    padding: 15px;
-    border-radius: 8px;
-    font-weight: bold;
-    font-size: 1.1em;
-}
-
-/* BENEFÍCIOS */
-.benefits {
-    margin: 25px 0;
-    font-size: 0.9em;
-}
-
-/* ADS */
-.ad {
-    margin: 30px 0;
-    text-align: center;
-}
-
-/* CTA EXTRA */
-.cta-extra {
-    display: block;
-    margin-top: 20px;
-    text-align: center;
-    padding: 12px;
-    background: #0d6efd;
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
-}
-
-/* URGÊNCIA */
-.urgency {
-    margin-top: 25px;
-    background: #fff3cd;
-    padding: 15px;
-    border-left: 5px solid #ffc107;
-    border-radius: 6px;
-}
-
-/* VOLTAR */
-.back {
-    display: block;
-    margin-top: 20px;
-    text-align: center;
-    font-size: 0.9em;
-}
-</style>
-
+        .result {
+            margin-top: 20px;
+            background: #fdecea;
+            padding: 15px;
+            border-radius: 8px;
+        }
+    </style>
 </head>
 
 <body>
 
-<!-- HERO -->
-<section class="hero">
-    <h1>🏍️ Simule o Financiamento da Sua Moto Honda</h1>
-    <p>Veja quanto vai pagar por mês antes de comprar</p>
-</section>
+    <section class="hero">
+        <h1>🏍️ Simule o Financiamento da Sua Moto</h1>
+        <p>Com valor FIPE automático</p>
+    </section>
 
-<div class="container">
+    <div class="container">
 
-    <!-- BENEFÍCIOS -->
-    <div class="benefits">
-        ✔ Simulação rápida e gratuita  
-        ✔ Ideal para motos Honda populares  
-        ✔ Descubra o impacto dos juros  
-    </div>
+        <div class="card">
 
-    <!-- ANÚNCIO TOPO -->
-    <div class="ad">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-XXXX"
-             data-ad-slot="TOPMOTO"
-             data-ad-format="auto"></ins>
-    </div>
+            <!-- FIPE -->
+            <select id="marca"></select>
+            <select id="modelo"></select>
+            <select id="ano"></select>
 
-    <!-- SIMULADOR -->
-    <div class="card">
+            <input id="valor" placeholder="Valor da moto (preenchido automaticamente)">
+            <input id="entrada" placeholder="Entrada">
+            <input id="juros" placeholder="Juros %">
+            <input id="parcelas" placeholder="Parcelas">
 
-        <input id="valor" placeholder="Valor da moto (ex: 18000)">
-        <input id="entrada" placeholder="Entrada (ex: 3000)">
-        <input id="juros" placeholder="Juros mensal % (ex: 1.8)">
-        <input id="parcelas" placeholder="Parcelas (ex: 36)">
+            <button onclick="calc()">Calcular</button>
 
-        <button onclick="calc()">Calcular Parcela</button>
+            <div id="res" class="result" style="display:none"></div>
 
-        <div id="res" class="result" style="display:none;"></div>
-
-        <!-- CTA -->
-        <a href="simulador-sem-entrada.html" class="cta-extra">
-            💸 Simular financiamento sem entrada
-        </a>
+        </div>
 
     </div>
+    <div style="text-align:center;"><a href="index.html" class="back" >⬅ Voltar</a></div>
+    <footer style="text-align:center;font-size:0.8em;padding:20px;color:#777;">
+        © 2026 Simulador Financeiro
+    </footer>
 
-    <!-- ANÚNCIO MEIO -->
-    <div class="ad">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-XXXX"
-             data-ad-slot="MIDMOTO"
-             data-ad-format="fluid"></ins>
-    </div>
+    <script>
+        // ===== FIPE =====
+        const base = "https://parallelum.com.br/fipe/api/v1/motos";
 
-    <!-- URGÊNCIA -->
-    <div class="urgency">
-        ⚠️ Motos costumam ter juros mais altos. Simule antes de fechar para evitar parcelas caras.
-    </div>
+        async function carregarMarcas() {
+            const res = await fetch(base + "/marcas");
+            const data = await res.json();
 
-    <!-- VOLTAR -->
-    <a href="index.html" class="back">⬅ Voltar para simuladores</a>
+            marca.innerHTML = "<option>Selecione marca</option>";
+            data.forEach(m => {
+                marca.innerHTML += `<option value="${m.codigo}">${m.nome}</option>`;
+            });
+        }
 
-</div>
+        marca.addEventListener("change", async () => {
+            const res = await fetch(`${base}/marcas/${marca.value}/modelos`);
+            const data = await res.json();
 
-<footer style="text-align:center; font-size:0.8em; padding:20px; color:#777;">
-© 2026 Simulador Financeiro | Valores aproximados
-</footer>
+            modelo.innerHTML = "<option>Selecione modelo</option>";
+            data.modelos.forEach(m => {
+                modelo.innerHTML += `<option value="${m.codigo}">${m.nome}</option>`;
+            });
+        });
 
-<script>
-function calc(){
-let v=parseFloat(document.getElementById('valor').value);
-let e=parseFloat(document.getElementById('entrada').value)||0;
-let j=parseFloat(document.getElementById('juros').value)/100;
-let n=parseInt(document.getElementById('parcelas').value);
+        modelo.addEventListener("change", async () => {
+            const res = await fetch(`${base}/marcas/${marca.value}/modelos/${modelo.value}/anos`);
+            const data = await res.json();
 
-if(!v || !j || !n){
-    alert("Preencha todos os campos corretamente");
-    return;
-}
+            ano.innerHTML = "<option>Selecione ano</option>";
+            data.forEach(a => {
+                ano.innerHTML += `<option value="${a.codigo}">${a.nome}</option>`;
+            });
+        });
 
-let pv=v-e;
-let pmt=(pv*j)/(1-Math.pow(1+j,-n));
+        ano.addEventListener("change", async () => {
+            const res = await fetch(`${base}/marcas/${marca.value}/modelos/${modelo.value}/anos/${ano.value}`);
+            const data = await res.json();
 
-let total = pmt * n;
+            let preco = data.Valor.replace("R$", "").replace(".", "").replace(",", ".");
+            valor.value = parseFloat(preco);
+        });
 
-let res=document.getElementById('res');
-res.style.display="block";
-res.innerHTML = `
-💰 Parcela: R$ ${pmt.toFixed(2)} <br>
-📊 Total pago: R$ ${total.toFixed(2)}
+        carregarMarcas();
+
+
+        // ===== CALCULO =====
+        function calc() {
+            let v = parseFloat(valor.value);
+            let e = parseFloat(entrada.value) || 0;
+            let j = parseFloat(juros.value) / 100;
+            let n = parseInt(parcelas.value);
+
+            if (!v || !j || !n) {
+                alert("Preencha corretamente");
+                return;
+            }
+
+            let pv = v - e;
+            let pmt = (pv * j) / (1 - Math.pow(1 + j, -n));
+            let total = pmt * n;
+
+            res.style.display = "block";
+            res.innerHTML = `
+Parcela: R$ ${pmt.toFixed(2)}<br>
+Total: R$ ${total.toFixed(2)}
 `;
-}
-</script>
-
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+        }
+    </script>
 
 </body>
+
 </html>
